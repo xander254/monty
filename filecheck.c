@@ -59,6 +59,8 @@ void read_file(char *filename)
 
 void parser(char *buffer)
 {
+	stack_t *head;
+	stack_t *top;
 	char *token;
 	char *delim = " \n\t";
 	char *opcode = NULL;
@@ -73,7 +75,7 @@ void parser(char *buffer)
 			number = atoi(strtok(NULL, delim));
 			if (strcmp(opcode, "push") == 0)
 			{
-				push_to_stack(number);
+				push_to_stack(&head, &top, number);
 			}
 		}
 	}

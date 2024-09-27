@@ -36,16 +36,13 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-/* Head of the list*/
-extern stack_t *head;
-extern stack_t *top;
 
 /* File Operations*/
 void filecheck(int argc, char **argv);
 void read_file(char *filename);
 void tokenize(char *buffer);
-void push_to_stack(int number);
-void print_all(void);
-bool is_empty(void);
+void push_to_stack(stack_t **head, stack_t **top, int number);
+void print_all(stack_t *head);
+bool is_empty(stack_t *head);
 void parser(char *buffer);
 #endif /* MONTY_H */

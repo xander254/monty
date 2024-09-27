@@ -5,7 +5,7 @@
   * @number: the number to be added in the list->data part
   * Return: what is added on the stack
   */
-void push_to_stack(int number)
+void push_to_stack(stack_t **head, stack_t **top, int number)
 {
 	stack_t *new_node;
 
@@ -16,20 +16,20 @@ void push_to_stack(int number)
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = number;
-	if (is_empty())
+	if (is_empty(*top))
 	{
 		new_node->prev = NULL;
 		new_node->next = NULL;
 
-		head = new_node;
-		top = new_node;
+		*head = new_node;
+		*top = new_node;
 	}
 	else
 	{
-		top->next = new_node;
+		(*top)->next = new_node;
 		new_node->next = NULL;
-		new_node->prev = top;
-		top = new_node;
+		new_node->prev = *top;
+		*top = new_node;
 	}
 }
 

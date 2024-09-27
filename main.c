@@ -7,13 +7,16 @@
   * @argv: argument vectors
   */
 
-/* global variables */
-stack_t *head = NULL;
-stack_t *top = NULL;
 
 int main(int  argc,char **argv)
 {
+	stack_t *head = NULL;
+	stack_t *top = NULL;
+
 	filecheck(argc, argv);
+	push_to_stack(&head, &top, 5);
+	push_to_stack(&head, &top, 10);
+	print_all(head);
 
 	return (0);
 }

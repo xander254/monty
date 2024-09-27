@@ -5,7 +5,7 @@
   * Return: true is empty else false
   */
 
-bool is_empty(void)
+bool is_empty(stack_t *head)
 {
 	if (head == NULL)
 	{
